@@ -1,4 +1,5 @@
 import { Outlet } from '@tanstack/react-router'
+import { useTranslation } from 'react-i18next'
 import { Monitor, Bell, Palette, Wrench, UserCog } from 'lucide-react'
 import { Separator } from '@/components/ui/separator'
 import { ConfigDrawer } from '@/components/config-drawer'
@@ -6,44 +7,28 @@ import { Header } from '@/components/layout/header'
 import { Main } from '@/components/layout/main'
 import { ProfileDropdown } from '@/components/profile-dropdown'
 import { Search } from '@/components/search'
+import { LanguageSwitch } from '@/components/language-switch'
 import { ThemeSwitch } from '@/components/theme-switch'
 import { SidebarNav } from './components/sidebar-nav'
 
-const sidebarNavItems = [
-  {
-    title: 'Profile',
-    href: '/settings',
-    icon: <UserCog size={18} />,
-  },
-  {
-    title: 'Account',
-    href: '/settings/account',
-    icon: <Wrench size={18} />,
-  },
-  {
-    title: 'Appearance',
-    href: '/settings/appearance',
-    icon: <Palette size={18} />,
-  },
-  {
-    title: 'Notifications',
-    href: '/settings/notifications',
-    icon: <Bell size={18} />,
-  },
-  {
-    title: 'Display',
-    href: '/settings/display',
-    icon: <Monitor size={18} />,
-  },
-]
-
 export function Settings() {
+  const { t } = useTranslation('settings')
+
+  const sidebarNavItems = [
+    { title: t('profile'), href: '/settings', icon: <UserCog size={18} /> },
+    { title: t('account'), href: '/settings/account', icon: <Wrench size={18} /> },
+    { title: t('appearance'), href: '/settings/appearance', icon: <Palette size={18} /> },
+    { title: t('notifications'), href: '/settings/notifications', icon: <Bell size={18} /> },
+    { title: t('display'), href: '/settings/display', icon: <Monitor size={18} /> },
+  ]
+
   return (
     <>
       {/* ===== Top Heading ===== */}
       <Header>
         <Search className='me-auto' />
         <ThemeSwitch />
+          <LanguageSwitch />
         <ConfigDrawer />
         <ProfileDropdown />
       </Header>
@@ -51,10 +36,10 @@ export function Settings() {
       <Main fixed>
         <div className='space-y-0.5'>
           <h1 className='text-2xl font-bold tracking-tight md:text-3xl'>
-            Settings
+            {t('title')}
           </h1>
           <p className='text-muted-foreground'>
-            Manage your account settings and set e-mail preferences.
+            {t('description')}
           </p>
         </div>
         <Separator className='my-4 lg:my-6' />

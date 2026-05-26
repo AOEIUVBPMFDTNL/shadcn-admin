@@ -15,6 +15,7 @@ import { Header } from '@/components/layout/header'
 import { Main } from '@/components/layout/main'
 import { LearnMore } from '@/components/learn-more'
 import { Search } from '@/components/search'
+import { LanguageSwitch } from '@/components/language-switch'
 import { ThemeSwitch } from '@/components/theme-switch'
 import { UsersDialogs } from '@/features/users/components/users-dialogs'
 import { UsersPrimaryButtons } from '@/features/users/components/users-primary-buttons'
@@ -51,6 +52,7 @@ function UserManagement() {
         <Search className='me-auto' />
         <ThemeSwitch />
         <ConfigDrawer />
+              <LanguageSwitch />
         <UserButton />
       </Header>
 

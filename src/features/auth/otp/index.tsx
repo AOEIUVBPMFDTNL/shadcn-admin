@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next'
 import { Link } from '@tanstack/react-router'
 import {
   Card,
@@ -11,29 +12,29 @@ import { AuthLayout } from '../auth-layout'
 import { OtpForm } from './components/otp-form'
 
 export function Otp() {
+  const { t } = useTranslation('auth')
   return (
     <AuthLayout>
       <Card className='max-w-md gap-4'>
         <CardHeader>
           <CardTitle className='text-base tracking-tight'>
-            Two-factor Authentication
+            {t('otpTitle')}
           </CardTitle>
           <CardDescription>
-            Please enter the authentication code. <br /> We have sent the
-            authentication code to your email.
+            {t('otpDesc1')} <br /> {t('otpDesc2')}
           </CardDescription>
         </CardHeader>
         <CardContent>
           <OtpForm />
         </CardContent>
         <CardFooter>
-          <p className='px-8 text-center text-sm text-muted-foreground'>
-            Haven't received it?{' '}
+          <p className='text-muted-foreground px-8 text-center text-sm'>
+            {t('havenReceived')}{' '}
             <Link
               to='/sign-in'
               className='underline underline-offset-4 hover:text-primary'
             >
-              Resend a new code.
+              {t('resendCode')}
             </Link>
             .
           </p>
