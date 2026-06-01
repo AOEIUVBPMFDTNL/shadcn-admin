@@ -17,8 +17,10 @@ import { Search } from '@/components/search'
 import { LanguageSwitch } from '@/components/language-switch'
 import { ThemeSwitch } from '@/components/theme-switch'
 import { Analytics } from './components/analytics'
+import { Notifications } from './components/notifications'
 import { Overview } from './components/overview'
 import { RecentSales } from './components/recent-sales'
+import { Reports } from './components/reports'
 
 export function Dashboard() {
   const { t } = useTranslation('dashboard')
@@ -79,10 +81,10 @@ export function Dashboard() {
             <TabsList>
               <TabsTrigger value='overview'>{t('overview')}</TabsTrigger>
               <TabsTrigger value='analytics'>{t('analytics')}</TabsTrigger>
-              <TabsTrigger value='reports' disabled>
+              <TabsTrigger value='reports'>
                 {t('reports')}
               </TabsTrigger>
-              <TabsTrigger value='notifications' disabled>
+              <TabsTrigger value='notifications'>
                 {t('notifications')}
               </TabsTrigger>
             </TabsList>
@@ -215,6 +217,12 @@ export function Dashboard() {
           </TabsContent>
           <TabsContent value='analytics' className='space-y-4'>
             <Analytics />
+          </TabsContent>
+          <TabsContent value='notifications' className='space-y-4'>
+            <Notifications />
+          </TabsContent>
+          <TabsContent value='reports' className='space-y-4'>
+            <Reports />
           </TabsContent>
         </Tabs>
       </Main>
